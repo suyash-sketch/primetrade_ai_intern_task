@@ -40,6 +40,15 @@ def get_tasks(
     )
 
 
+@router.get("/{task_id}", response_model=TaskRead)
+def get_task(
+    task_id: int,
+    db: Session = Depends(get_db),
+    current_user = Depends(get_current_user),
+):
+    return task_service.get_task(db=db, task_id=task_id, owner_id=current_user.id)
+
+
 @router.patch("/{task_id}", response_model=TaskRead)
 def update_task(
     task_id: int,
