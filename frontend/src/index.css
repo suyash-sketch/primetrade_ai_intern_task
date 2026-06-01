@@ -1,0 +1,85 @@
+:root {
+  color: #2c241f;
+  background:
+    radial-gradient(circle at top left, rgba(247, 203, 122, 0.55), transparent 30%),
+    radial-gradient(circle at top right, rgba(135, 170, 90, 0.32), transparent 32%),
+    linear-gradient(180deg, #f8f1de 0%, #efe4cb 55%, #e8dcc8 100%);
+  font-family:
+    "IBM Plex Sans",
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --ink: #2d251f;
+  --muted: #6f6559;
+  --accent-strong: #a04915;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(74, 59, 37, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 59, 37, 0.03) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4), transparent 88%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: #231c17;
+  font-family:
+    "Space Grotesk",
+    "Segoe UI",
+    sans-serif;
+  line-height: 0.98;
+}
+
+p {
+  color: var(--muted);
+}
+
+code {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(35, 28, 23, 0.08);
+  color: #352920;
+  font-family:
+    "IBM Plex Mono",
+    monospace;
+  font-size: 0.84rem;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
