@@ -1,7 +1,11 @@
 from typing import List, Union
+from pathlib import Path
 from pydantic import AnyHttpUrl, field_validator
 from pydantic_core.core_schema import ValidationInfo
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+
+BASE_DIR = Path(__file__).resolve().parents[2]
 
 class Settings(BaseSettings):
     PROJECT_NAME : str = "PrimeTradeAI Intern Task"
@@ -22,6 +26,8 @@ class Settings(BaseSettings):
 
     DATABASE_URL: str | None = None
 
+    FIRST_SUPERUSER_EMAIL: str = "admin@primetrade.ai"
+    FIRST_SUPERUSER_PASSWORD: str = "admin123"
 
     @field_validator("DATABASE_URL", mode="before")
     @classmethod
@@ -48,7 +54,10 @@ class Settings(BaseSettings):
             return v
         raise ValueError("Invalid CORS origins format.")
     
-    model_config = SettingsConfigDict(env_file=".env", case_sensitive=True)
+    model_config = SettingsConfigDict(
+        env_file=BASE_DIR / ".env",
+        case_sensitive=True,
+    )
 
 
 settings = Settings()
