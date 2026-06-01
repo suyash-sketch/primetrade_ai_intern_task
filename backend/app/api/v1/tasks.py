@@ -16,7 +16,7 @@ def create_task(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user) # 🔒 Protected route
 ):
-    return task_service.create_task(db=db, task_in=task_in, owner_id=current_user.id)
+    return task_service.create_task(db=db, task_create=task_in, owner_id=current_user.id)
 
 
 @router.get("/", response_model=TaskListResponse)
@@ -56,7 +56,12 @@ def update_task(
     db: Session = Depends(get_db),
     current_user = Depends(get_current_user)
 ):
-    return task_service.update_task(db=db, task_id=task_id, task_in=task_in, owner_id=current_user.id)
+    return task_service.update_task(
+        db=db,
+        task_id=task_id,
+        task_update=task_in,
+        owner_id=current_user.id,
+    )
 
 
 @router.delete("/{task_id}", status_code=status.HTTP_204_NO_CONTENT)
