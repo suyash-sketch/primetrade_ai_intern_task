@@ -3,5 +3,8 @@ name = "primetradeai-intern-task"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = []
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi[standard]>=0.136.3",
+    "sqlalchemy>=2.0.50",
+]
