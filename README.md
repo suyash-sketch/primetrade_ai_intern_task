@@ -54,7 +54,7 @@ POSTGRES_PASSWORD=your_password
 POSTGRES_DB=primetrade_db
 POSTGRES_PORT=5432
 
-BACKEND_CORS_ORIGINS=["http://localhost:5173", "http://localhost:3000"]
+BACKEND_CORS_ORIGINS=["http://localhost:5173", "http://127.0.0.1:5173", "http://localhost:3000"]
 FIRST_SUPERUSER_EMAIL=admin@primetrade.ai
 FIRST_SUPERUSER_PASSWORD=admin123
 ```
