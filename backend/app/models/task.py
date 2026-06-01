@@ -54,7 +54,7 @@ class Task(Base):
 
     __table_args__ = (
         Index("ix_tasks_owner_status", "owner_id", "status" ),
-        Index("ix_tasks_owner_active", "owner_id", postgresql_where = text("is_delted = false")),
+        Index("ix_tasks_owner_active", "owner_id", postgresql_where = text("is_deleted = false")),
     )
 
     def __repr__(self) -> str:

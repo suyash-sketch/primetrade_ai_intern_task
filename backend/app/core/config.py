@@ -29,10 +29,11 @@ class Settings(BaseSettings):
         if isinstance(v, str):
             return v
         
+        # Use .get() and single quotes
         return (
-            f"postgresql://{info.data['POSTGRES_USER']}:{info.data['POSTGRES_PASSWORD']}"
-            f"@{info.data["POSTGRES_SERVER"]}:{info.data['POSTGRES_PORT']}"
-            f"/{info.data['POSTGRES_DB']}"
+            f"postgresql://{info.data.get('POSTGRES_USER')}:{info.data.get('POSTGRES_PASSWORD')}"
+            f"@{info.data.get('POSTGRES_SERVER')}:{info.data.get('POSTGRES_PORT')}"
+            f"/{info.data.get('POSTGRES_DB')}"
         )
     
     # CORS

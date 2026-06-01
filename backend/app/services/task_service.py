@@ -65,7 +65,7 @@ def get_tasks(
         .all()
     )
 
-    task_reads = [TaskRead.model_validate(task) for t in task]
+    task_reads = [TaskRead.model_validate(t) for t in task]
 
     return TaskListResponse.build(
         tasks= task_reads,
